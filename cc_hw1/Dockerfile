@@ -7,6 +7,12 @@ RUN apt-get install -y \
     curl \
     gcc
 
+# added this
+RUN apt-get install -y \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential
+
 ARG INSTALL_NODE_VERSION=${INSTALL_NODE_VERSION:-12}
 RUN curl -sL https://deb.nodesource.com/setup_${INSTALL_NODE_VERSION}.x | bash -
 RUN apt-get install -y \

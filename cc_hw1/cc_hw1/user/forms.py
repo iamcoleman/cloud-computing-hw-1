@@ -13,6 +13,12 @@ class RegisterForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=3, max=25)]
     )
+    first = StringField(
+        "First Name", validators=[DataRequired(), Length(min=1, max=25)]
+    )
+    last = StringField(
+        "Last Name", validators=[DataRequired(), Length(min=1, max=25)]
+    )
     email = StringField(
         "Email", validators=[DataRequired(), Email(), Length(min=6, max=40)]
     )
@@ -20,7 +26,7 @@ class RegisterForm(FlaskForm):
         "Password", validators=[DataRequired(), Length(min=6, max=40)]
     )
     confirm = PasswordField(
-        "Verify password",
+        "Verify Password",
         [DataRequired(), EqualTo("password", message="Passwords must match")],
     )
 
