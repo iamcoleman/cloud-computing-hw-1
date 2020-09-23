@@ -13,10 +13,10 @@ class RegisterForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=3, max=25)]
     )
-    first = StringField(
+    first_name = StringField(
         "First Name", validators=[DataRequired(), Length(min=1, max=25)]
     )
-    last = StringField(
+    last_name = StringField(
         "Last Name", validators=[DataRequired(), Length(min=1, max=25)]
     )
     email = StringField(

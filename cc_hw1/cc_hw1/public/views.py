@@ -36,7 +36,8 @@ def home():
         if form.validate_on_submit():
             login_user(form.user)
             flash("You are logged in.", "success")
-            redirect_url = request.args.get("next") or url_for("user.members")
+            # redirect_url = request.args.get("next") or url_for("user.members")
+            redirect_url = url_for("public.home")
             return redirect(redirect_url)
         else:
             flash_errors(form)
@@ -62,6 +63,8 @@ def register():
             email=form.email.data,
             password=form.password.data,
             active=True,
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
         )
         flash("Thank you for registering. You can now log in.", "success")
         return redirect(url_for("public.home"))
