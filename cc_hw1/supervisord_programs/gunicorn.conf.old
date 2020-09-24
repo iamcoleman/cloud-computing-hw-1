@@ -3,11 +3,11 @@ directory=/app
 command=gunicorn
     cc_hw1.app:create_app()
     -b :5000
-    -w 4
-    -k sync
+    -w %(ENV_GUNICORN_WORKERS)s
+    -k gevent
     --max-requests=5000
     --max-requests-jitter=500
-    --log-level=debug
+    --log-level=%(ENV_LOG_LEVEL)s
 autostart=true
 autorestart=true
 stdout_logfile=/dev/stdout
